@@ -12,20 +12,20 @@
         <meta name="author" content="Yanlin Jiang">
       
       
-        <link rel="canonical" href="https://kit-iai.github.io/Polar/">
+        <link rel="canonical" href="https://kit-iai.github.io/Polar/mfiles/03_parser/solve_distributed_problem_centralized/">
       
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>OPF in Polarcoordinats</title>
+        <title>solve_distributed_problem_centralized - OPF in Polarcoordinats</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
       
       
 
@@ -41,9 +41,9 @@
       
     
     
-      <link rel="stylesheet" href="extra.css">
+      <link rel="stylesheet" href="../../../extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rapidpf" class="md-skip">
+        <a href="#solve_distributed_problem_centralized" class="md-skip">
           Skip to content
         </a>
       
@@ -81,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="OPF in Polarcoordinats" class="md-header__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
+    <a href="../../.." title="OPF in Polarcoordinats" class="md-header__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RapidPF
+              solve_distributed_problem_centralized
             
           </span>
         </div>
@@ -167,7 +167,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="OPF in Polarcoordinats" class="md-nav__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
+    <a href="../../.." title="OPF in Polarcoordinats" class="md-nav__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -186,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Problem formulation.md" class="md-nav__link">
+      <a href="../../../Problem formulation.md" class="md-nav__link">
         Problem Formulation
       </a>
     </li>
@@ -201,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="run OPF.md" class="md-nav__link">
+      <a href="../../../run OPF.md" class="md-nav__link">
         Run OPF
       </a>
     </li>
@@ -216,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sensitivity.md" class="md-nav__link">
+      <a href="../../../sensitivity.md" class="md-nav__link">
         Sensitivity
       </a>
     </li>
@@ -250,36 +250,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rapid-prototyping-for-distributed-power-flow-problems" class="md-nav__link">
-    Rapid prototyping for distributed power flow problems
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-to-expect" class="md-nav__link">
-    What to expect
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-not-to-expect" class="md-nav__link">
-    What not to expect
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citing" class="md-nav__link">
-    Citing
+  <a href="#markdown-formatting-is-supported" class="md-nav__link">
+    Markdown formatting is supported
   </a>
   
 </li>
@@ -299,77 +271,26 @@
                   
 
 
-<h1 id="rapidpf">RapidPF</h1>
-<h2 id="rapid-prototyping-for-distributed-power-flow-problems">Rapid prototyping for distributed power flow problems</h2>
-<p>The power flow problem is <em>the</em> cornerstone problem in power systems analysis: find all (complex) quantities in an AC electrical network in steady state.
-Mathematically, the power flow problem is a system of nonlinear equations</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">g(x) = 0</div>
-<script type="math/tex; mode=display">g(x) = 0</script>
-</div>
-<p>that can be solved by the Newton method, for instance.
-However, the power flow problem can also be solved in a distributed fashion,</p>
-<p>$$
-\begin{align}
-g_{i}(x_i) &amp;= 0, \\
-\sum_{i = 1}^{n} A_i x_i &amp;= 0,
-\end{align}
-$$
-where <span class="arithmatex"><span class="MathJax_Preview">i \in \{ 1, \dots, n\}</span><script type="math/tex">i \in \{ 1, \dots, n\}</script></span> corresponds to the <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>-th subproblem.
-In plain words, the distributed power flow problem means</p>
-<blockquote>
-<p>to solve a power flow problem within each region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> whilst ensuring that the neighboring power flows satisfy the overall power flow equations.</p>
-</blockquote>
-<p>There are several advantages of distributed approaches:</p>
+<h1 id="solve_distributed_problem_centralized">solve_distributed_problem_centralized</h1>
+<p><code>copy the declaration of the function in here (leave the ticks unchanged)</code></p>
+<p><em>describe what the function does in the following line</em></p>
+<h2 id="markdown-formatting-is-supported">Markdown formatting is supported</h2>
+<p>Equations are possible to, e.g <span class="arithmatex"><span class="MathJax_Preview">a^2 + b^2 = c^2</span><script type="math/tex">a^2 + b^2 = c^2</script></span>.
+So are lists:</p>
 <ul>
-<li>distribute computational effort,</li>
-<li>preserves privacy,</li>
-<li>increases reliability,</li>
-<li>and adds flexibility.</li>
+<li>
+<p>item 1</p>
+</li>
+<li>
+<p>item 2</p>
+</li>
 </ul>
-<h2 id="what-to-expect">What to expect</h2>
-<p>The code allows to <em>formulate</em> distributed power flow problems easily.
-Specifically, the features of the code include:</p>
-<ul>
-<li>Starting from several individual case files, generate a merged case file for given connections.</li>
-<li>Formulate distributed power flow problems in terms of function handles.</li>
-<li>Solve distributed power flow problems using the <a href="https://github.com/alexe15/ALADIN.m">Aladin toolbox.</a></li>
-<li>Fully compliant with <code>matpower</code> case files, hence allowing to use all of the built-in <code>matpower</code> functions.</li>
-<li>Insightful post-processing features.</li>
-</ul>
-<h2 id="what-not-to-expect">What <em>not </em>to expect</h2>
-<ul>
-<li>An introduction to the power flow problem as such. There are excellent references for this, for example <a href="https://www.tandfonline.com/doi/full/10.1080/0740817X.2016.1189626?casa_token=PcNIfyUVkpEAAAAA%3Auyjxp1a-UdKfMpngiDeV6V5zfxy-H1j8ZNc60XAujhsq4lO7w_O-qst2Idu3nnf0PasCrvMx9Ae00ic">this one</a></li>
-<li><em>Optimal</em> power flow problems.</li>
-<li>A collection of numerical routines to <em>solve</em> distributed power flow problems.</li>
-<li>A visualizer of <code>matpower</code> case files; use <a href="https://immersive.erc.monash.edu/STAC/">STAC</a> for this.</li>
-</ul>
-<h2 id="installation">Installation</h2>
-<p><a href="installation/">See here.</a></p>
-<div class="admonition note">
-<p class="admonition-title">Use of <code>matpower</code></p>
-<p>The code relies heavily on <code>Matpower</code>, especially on the idea of a <code>matpower case file</code> (or <code>mpc</code>).
-This bulky name is nothing but a standardized <code>Matlab</code> struct, with the advantage that it has become a <em>de facto</em> standard for Matlab-based power systems research.
-Also, <code>mpc</code> can be converted within <code>matpower</code> to/from IEEE CDF or PSS/E RAW, see the <code>Matpower</code> docs for details.</p>
-</div>
-<h2 id="citing">Citing</h2>
-<p>If you find the code useful for your own academic research, please cite it.</p>
-<div class="highlight"><pre><span></span><code>@ARTICLE{2020arXiv201110322M,
-       author = {{M{\&quot;u}hlpfordt}, Tillmann and {Dai}, Xinliang and {Engelmann}, Alexander and {Hagenmeyer}, Veit},
-        title = &quot;{Distributed Power Flow and Distributed Optimization -- Formulation, Solution, and Open Source Implementation}&quot;,
-      journal = {arXiv e-prints},
-     keywords = {Mathematics - Optimization and Control, Electrical Engineering and Systems Science - Systems and Control},
-         year = 2020,
-        month = nov,
-          eid = {arXiv:2011.10322},
-        pages = {arXiv:2011.10322},
-archivePrefix = {arXiv},
-       eprint = {2011.10322},
- primaryClass = {math.OC},
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2020arXiv201110322M},
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-}
+<p><div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span>x<span class="p">)</span>
+
+<span class="w">        </span><span class="n">x</span>^<span class="mi">2</span>
+<span class="k">end</span>
 </code></pre></div>
+See also: <a href="run_case_file_splitter.md">run_case_file_splitter</a></p>
 
 
 
@@ -407,10 +328,10 @@ archivePrefix = {arXiv},
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
           <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>

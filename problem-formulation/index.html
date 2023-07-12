@@ -1,0 +1,637 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Polar coordinates">
+      
+      
+        <meta name="author" content="Yanlin Jiang">
+      
+      
+        <link rel="canonical" href="https://kit-iai.github.io/Polar/problem-formulation/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Problem formulation - OPF in Polarcoordinats</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#problem-formulation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OPF in Polarcoordinats" class="md-header__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OPF in Polarcoordinats
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Problem formulation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OPF in Polarcoordinats" class="md-nav__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OPF in Polarcoordinats
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Problem formulation.md" class="md-nav__link">
+        Problem Formulation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run OPF.md" class="md-nav__link">
+        Run OPF
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sensitivity.md" class="md-nav__link">
+        Sensitivity
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-nodes-copy-nodes" class="md-nav__link">
+    Core nodes &amp; copy nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-power-flow-problem" class="md-nav__link">
+    Local power flow problem
+  </a>
+  
+    <nav class="md-nav" aria-label="Local power flow problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-flow-equations" class="md-nav__link">
+    Power flow equations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bus-specifications" class="md-nav__link">
+    Bus specifications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#degrees-of-freedom" class="md-nav__link">
+    Degrees of freedom
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decentralized-power-flow-problem" class="md-nav__link">
+    Decentralized power flow problem
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="problem-formulation">Problem formulation</h1>
+<p>Here we present the mathematical formulation of the distributed power
+flow problem, which simply reads</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+        g^{\text{pf}}_i( x_i, z_i ) &amp;= 0 \\
+        g^{\text{bus}}_i ( x_i ) &amp;= 0 \\
+        \sum_{i = 1}^{n^{\text{reg}}} A_i \begin{bmatrix}
+            x_i \\
+            z_i
+        \end{bmatrix}
+        &amp;= 0.
+    \end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+        g^{\text{pf}}_i( x_i, z_i ) &= 0 \\
+        g^{\text{bus}}_i ( x_i ) &= 0 \\
+        \sum_{i = 1}^{n^{\text{reg}}} A_i \begin{bmatrix}
+            x_i \\
+            z_i
+        \end{bmatrix}
+        &= 0.
+    \end{aligned}</script>
+</div>
+<p>In plain words, the first set of equations satisfies the power flow
+equations in each region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>, the second set of equations accounts for
+the bus specifications, and the third set of equations ensures consensus
+among the nodes that are shared between regions (will be explained
+below).</p>
+<p>Its advantage is that its solution—supposing it exists—is mathematically
+equivalent to the original power flow problem. Instead of often done
+splitting of lines we simply copy neighboring buses within regions.</p>
+<p>With rapidPF, the distributed power flow problem can be solved in two different problem formulations:</p>
+<ul>
+<li>as a distributed feasibility problem,</li>
+<li>or as a distributed least-squares problem.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">What problem formulation to use</p>
+<p>From our experience, the distributed least-squares formulation works better.</p>
+</div>
+<h2 id="core-nodes-copy-nodes">Core nodes &amp; copy nodes</h2>
+<p>Suppose we have a grid that looks like as follows</p>
+<p><img alt="image" src="visualization/original.png" /></p>
+<p>There are a total of <span class="arithmatex"><span class="MathJax_Preview">12</span><script type="math/tex">12</script></span> buses in the system. The dashed lines
+indicate the three different regions: buses <span class="arithmatex"><span class="MathJax_Preview">\{ 1, 2, 3 \}</span><script type="math/tex">\{ 1, 2, 3 \}</script></span> belong to
+what we call the master system, buses <span class="arithmatex"><span class="MathJax_Preview">\{4, 5, 6, 7 \}</span><script type="math/tex">\{4, 5, 6, 7 \}</script></span> belong to what
+we call the (first) worker system, and buses <span class="arithmatex"><span class="MathJax_Preview">\{ 8, 9, 10, 11, 12 \}</span><script type="math/tex">\{ 8, 9, 10, 11, 12 \}</script></span>
+belong to the (second) worker system. Hence, we distinguish between
+<em>master</em> and <em>worker</em> systems; these local or regional systems (or just
+<em>subsystems</em>) make up the overall power system.</p>
+<p>For the overall system the power flow problem means to compute the
+values</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+    x_i = \begin{bmatrix}
+        \theta_i \\
+        v_i \\
+        p_i \\
+        q_i \\
+    \end{bmatrix}
+    \in \mathbb{R}^{4 n}\end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+    x_i = \begin{bmatrix}
+        \theta_i \\
+        v_i \\
+        p_i \\
+        q_i \\
+    \end{bmatrix}
+    \in \mathbb{R}^{4 n}\end{aligned}</script>
+</div>
+<p>for all <span class="arithmatex"><span class="MathJax_Preview">i \in \{1, \dots, 12 \}</span><script type="math/tex">i \in \{1, \dots, 12 \}</script></span>. A prototypical power flow problem
+can be formulated mathematically as a system of nonlinear equations of
+the form</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+        g^{\text{pf}}( x) &amp;= 0, \\
+        g^{\text{bus}}( x) &amp;= 0,
+    \end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+        g^{\text{pf}}( x) &= 0, \\
+        g^{\text{bus}}( x) &= 0,
+    \end{aligned}</script>
+</div>
+<p>where <span class="arithmatex"><span class="MathJax_Preview">g^{\text{pf}}( x) = 0</span><script type="math/tex">g^{\text{pf}}( x) = 0</script></span> constitutes the <span class="arithmatex"><span class="MathJax_Preview">2 \times 12</span><script type="math/tex">2 \times 12</script></span> power
+flow equations, and <span class="arithmatex"><span class="MathJax_Preview">g^{\text{bus}}( x) = 0</span><script type="math/tex">g^{\text{bus}}( x) = 0</script></span> stands for the remaining
+<span class="arithmatex"><span class="MathJax_Preview">2 \times 12</span><script type="math/tex">2 \times 12</script></span> bus specifications. This yields a total of
+<span class="arithmatex"><span class="MathJax_Preview">4 \times 12</span><script type="math/tex">4 \times 12</script></span> equations for <span class="arithmatex"><span class="MathJax_Preview">4 \times 12</span><script type="math/tex">4 \times 12</script></span> unknowns. Arguably, this
+leads to large systems of nonlinear equations as soon as the number of
+buses in the power system increases. From here on we call this
+prototypical power flow problem we just described the <em>centralized</em>
+power flow problem.</p>
+<p>The idea of <em>distributed</em> power flow is to solve <em>local</em> power flow
+problems within each system (= the master system, and all of the worker
+systems), independent of each other, and iterate for as long as
+necessary until the solution of the centralized problem is obtained.
+Iteration here means to find consensus on the physical values of the
+exchanged power between the subsystems.</p>
+<p>Before making this idea mathematically precise we introduce some more
+Nomenclature. Suppose we are seated in the master system, the one
+composed of buses <span class="arithmatex"><span class="MathJax_Preview">\{1, 2, 3 \}</span><script type="math/tex">\{1, 2, 3 \}</script></span>. From our perspective both worker
+systems are our <em>neighbors</em>. More precisely, we know only that bus <span class="arithmatex"><span class="MathJax_Preview">4</span><script type="math/tex">4</script></span>
+(located in the first worker system) is our connection to the first worker
+system. Likewise, bus <span class="arithmatex"><span class="MathJax_Preview">8</span><script type="math/tex">8</script></span> (located in the second worker system) is our
+connection to the second worker system. To distinguish between these
+different kinds of buses we call the buses <span class="arithmatex"><span class="MathJax_Preview">\{1, 2, 3 \}</span><script type="math/tex">\{1, 2, 3 \}</script></span> the <em>core</em>
+nodes of the master system, and buses <span class="arithmatex"><span class="MathJax_Preview">\{ 4, 8\}</span><script type="math/tex">\{ 4, 8\}</script></span> the <em>copy</em> nodes.
+Importantly, all other nodes do not exist for us; they are ignored.
+Graphically, our world looks as follows.</p>
+<p><img alt="image" src="visualization/version_1.png" /></p>
+<p>Why the term <em>copy</em>? Because when formulating the power flow equations
+for the master system we need to know the voltages at the <em>copy</em> nodes.
+And in case we don’t know the values (which we really don’t because the
+copy nodes do not belong to our jurisdiction), then we have to <em>assume</em>
+values for them. This can be thought of as copying the buses into the
+shaded are denoted as “<span class="arithmatex"><span class="MathJax_Preview">\text{copy + core nodes}</span><script type="math/tex">\text{copy + core nodes}</script></span>,” hence the name.</p>
+<p>Taking on the perspective of the first worker system we see: our core
+nodes are <span class="arithmatex"><span class="MathJax_Preview">\{ 4, 5, 6, 7 \}</span><script type="math/tex">\{ 4, 5, 6, 7 \}</script></span>, and there is just one copy bus <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>,
+the first bus in the master system. Our world looks as follows.</p>
+<p><img alt="image" src="visualization/version_2.png" /></p>
+<p>Being able to distinguish between core nodes and copy nodes allows to
+formulate the distributed power flow clearer: <em>solve the power flow
+problem in each subsystem and attain consensus between the copy nodes
+and their core node equivalents.</em> By core node equivalent we mean the
+following: the first copy bus of the master system has bus <span class="arithmatex"><span class="MathJax_Preview">4</span><script type="math/tex">4</script></span> as its
+core node equivalent. It is clear from intuition that if the voltage at
+the copy node in each subsystem corresponds to the value of its core
+node equivalent, then the solution of the distributed power flow problem
+is the same as the solution from the centralized power flow problem.</p>
+<p>Let us make these ideas mathematically more precise.</p>
+<h2 id="local-power-flow-problem">Local power flow problem</h2>
+<p>The following table collects symbols and their meanings as they are used
+throughout.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><span class="arithmatex"><span class="MathJax_Preview">n^{\text{reg}}</span><script type="math/tex">n^{\text{reg}}</script></span></td>
+<td align="left">Number of regions</td>
+</tr>
+<tr>
+<td align="left"><span class="arithmatex"><span class="MathJax_Preview">n^{\text{conn}}</span><script type="math/tex">n^{\text{conn}}</script></span></td>
+<td align="left">Number of connecting lines between regions</td>
+</tr>
+<tr>
+<td align="left"><span class="arithmatex"><span class="MathJax_Preview">n^\text{core}_{i}</span><script type="math/tex">n^\text{core}_{i}</script></span></td>
+<td align="left">Number of core nodes in region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span></td>
+</tr>
+<tr>
+<td align="left"><span class="arithmatex"><span class="MathJax_Preview">n^\text{copy}_{i}</span><script type="math/tex">n^\text{copy}_{i}</script></span></td>
+<td align="left">Number of copy nodes in region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span></td>
+</tr>
+<tr>
+<td align="left"><span class="arithmatex"><span class="MathJax_Preview">x_{i}</span><script type="math/tex">x_{i}</script></span></td>
+<td align="left">State of core nodes in region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span></td>
+</tr>
+<tr>
+<td align="left"><span class="arithmatex"><span class="MathJax_Preview">z_{i}</span><script type="math/tex">z_{i}</script></span></td>
+<td align="left">State of copy nodes in region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span></td>
+</tr>
+</tbody>
+</table>
+<p>We compose the set of buses of each region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> into a set of <em>core
+nodes</em>, and a set of <em>copy nodes</em>. The core nodes are the original nodes
+that make up the power system. The copy nodes are the nodes that connect
+the power system to the neighboring power systems. Hence, the copy nodes
+<em>do not belong to the power system</em> but to its neighbors. The sole
+purpose of the copy nodes is to store the complex voltage information at
+the neighboring buses such that power flow equations can be constructed.</p>
+<p>The state of the core nodes contains the voltage angles, the voltage
+magnitudes, the net active power, and the net reactive power of all core
+nodes</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+    \label{eq:state-core}
+    x_i = \begin{bmatrix}
+        \theta_i^\text{core} \\
+        v_i^\text{core} \\
+        p_i^\text{core} \\
+        q_i^\text{core} \\
+    \end{bmatrix}
+    \in \mathbb{R}^{4 n^\text{core}_i}.\end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+    \label{eq:state-core}
+    x_i = \begin{bmatrix}
+        \theta_i^\text{core} \\
+        v_i^\text{core} \\
+        p_i^\text{core} \\
+        q_i^\text{core} \\
+    \end{bmatrix}
+    \in \mathbb{R}^{4 n^\text{core}_i}.\end{aligned}</script>
+</div>
+<p>The state of the copy nodes contains the voltage angles and the voltage
+magnitudes of all copy nodes</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+    \label{eq:state-copy}
+    z_i = \begin{bmatrix}
+        \theta_i^\text{copy} \\
+        v_i^\text{copy}
+    \end{bmatrix}
+    \in \mathbb{R}^{2 n^\text{copy}_i}.\end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+    \label{eq:state-copy}
+    z_i = \begin{bmatrix}
+        \theta_i^\text{copy} \\
+        v_i^\text{copy}
+    \end{bmatrix}
+    \in \mathbb{R}^{2 n^\text{copy}_i}.\end{aligned}</script>
+</div>
+<p>We see: each region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> is described by a total of
+<span class="arithmatex"><span class="MathJax_Preview">4 n^\text{core}_i + 2 n^\text{copy}_i</span><script type="math/tex">4 n^\text{core}_i + 2 n^\text{copy}_i</script></span> real numbers.</p>
+<h3 id="power-flow-equations">Power flow equations</h3>
+<p>In region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> we formulate a total of <span class="arithmatex"><span class="MathJax_Preview">2 n^\text{core}_i</span><script type="math/tex">2 n^\text{core}_i</script></span> power flow
+equations
+<span class="arithmatex"><span class="MathJax_Preview">g^{\text{pf}}_i \colon \mathbb{R}^{4 n^\text{core}_i} \times \mathbb{R}^{2 n^\text{copy}_i} \rightarrow \mathbb{R}^{2 n^\text{core}_i}</span><script type="math/tex">g^{\text{pf}}_i \colon \mathbb{R}^{4 n^\text{core}_i} \times \mathbb{R}^{2 n^\text{copy}_i} \rightarrow \mathbb{R}^{2 n^\text{core}_i}</script></span>
+for all core nodes</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+    g^{\text{pf}}_i( x_i, z_i) = 0.\end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+    g^{\text{pf}}_i( x_i, z_i) = 0.\end{aligned}</script>
+</div>
+<h3 id="bus-specifications">Bus specifications</h3>
+<p>In region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> we formulate a total of <span class="arithmatex"><span class="MathJax_Preview">2 n^\text{core}_i</span><script type="math/tex">2 n^\text{core}_i</script></span> bus
+specifications
+<span class="arithmatex"><span class="MathJax_Preview">g^{\text{bus}}_i \colon \mathbb{R}^{4 n^\text{core}_i} \rightarrow \mathbb{R}^{2 n^\text{core}_i}</span><script type="math/tex">g^{\text{bus}}_i \colon \mathbb{R}^{4 n^\text{core}_i} \rightarrow \mathbb{R}^{2 n^\text{core}_i}</script></span>
+for all core nodes</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+    g^{\text{bus}}_i( x_i) = 0.\end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+    g^{\text{bus}}_i( x_i) = 0.\end{aligned}</script>
+</div>
+<h3 id="degrees-of-freedom">Degrees of freedom</h3>
+<p>Subtracting the number of equations from the number of decision
+variables gives us a total of</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+    \underbrace{4 n^\text{core}_i + 2 n^\text{copy}_i}_{\text{Decision variables}} - \underbrace{2 n^\text{core}_i}_{\text{Power flow equations}} - \underbrace{2 n^\text{core}_i}_{\text{Bus specifications}} = \underbrace{2 n^\text{copy}_i}_{\text{Degrees of freedom}}\end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+    \underbrace{4 n^\text{core}_i + 2 n^\text{copy}_i}_{\text{Decision variables}} - \underbrace{2 n^\text{core}_i}_{\text{Power flow equations}} - \underbrace{2 n^\text{core}_i}_{\text{Bus specifications}} = \underbrace{2 n^\text{copy}_i}_{\text{Degrees of freedom}}\end{aligned}</script>
+</div>
+<p>degrees of freedom for each region <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>. These degrees of freedom must
+be fixed globally by the consensus constraints.</p>
+<h2 id="decentralized-power-flow-problem">Decentralized power flow problem</h2>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+        g^{\text{pf}}_i( x_i, z_i ) &amp;= 0 \\
+        g^{\text{bus}}_i ( x_i ) &amp;= 0 \\
+        \sum_{i = 1}^{n^{\text{reg}}} A_i \begin{bmatrix}
+            x_i \\
+            z_i
+        \end{bmatrix}
+        &amp;= 0,
+    \end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+        g^{\text{pf}}_i( x_i, z_i ) &= 0 \\
+        g^{\text{bus}}_i ( x_i ) &= 0 \\
+        \sum_{i = 1}^{n^{\text{reg}}} A_i \begin{bmatrix}
+            x_i \\
+            z_i
+        \end{bmatrix}
+        &= 0,
+    \end{aligned}</script>
+</div>
+<p>where the consensus matrices
+<span class="arithmatex"><span class="MathJax_Preview">A_i \in \mathbb{R}^{4 n^{\text{conn}}\times (4 n^\text{core}_i + 2 n^\text{copy}_i)}</span><script type="math/tex">A_i \in \mathbb{R}^{4 n^{\text{conn}}\times (4 n^\text{core}_i + 2 n^\text{copy}_i)}</script></span>
+enforce equality of the voltage angle and the voltage magnitude at the
+copy buses and their respective original buses.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+      
+    
+  </body>
+</html>

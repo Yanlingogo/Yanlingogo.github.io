@@ -12,22 +12,20 @@
         <meta name="author" content="Yanlin Jiang">
       
       
-        <link rel="canonical" href="https://kit-iai.github.io/Polar/sensitivity/">
+        <link rel="canonical" href="https://kit-iai.github.io/Polar/mfiles/03_parser/create_power_flow_equation_for_q/">
       
       
-        <link rel="prev" href="../run%20OPF/">
       
-      
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Sensitivity - OPF in Polarcoordinats</title>
+        <title>create_power_flow_equation_for_q - OPF in Polarcoordinats</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
       
       
 
@@ -43,9 +41,9 @@
       
     
     
-      <link rel="stylesheet" href="../extra.css">
+      <link rel="stylesheet" href="../../../extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sensitivities" class="md-skip">
+        <a href="#create_power_flow_equation_for_q" class="md-skip">
           Skip to content
         </a>
       
@@ -83,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="OPF in Polarcoordinats" class="md-header__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
+    <a href="../../.." title="OPF in Polarcoordinats" class="md-header__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -102,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sensitivity
+              create_power_flow_equation_for_q
             
           </span>
         </div>
@@ -169,7 +167,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="OPF in Polarcoordinats" class="md-nav__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
+    <a href="../../.." title="OPF in Polarcoordinats" class="md-nav__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -188,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem%20formulation/" class="md-nav__link">
+      <a href="../../../Problem formulation.md" class="md-nav__link">
         Problem Formulation
       </a>
     </li>
@@ -203,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../run%20OPF/" class="md-nav__link">
+      <a href="../../../run OPF.md" class="md-nav__link">
         Run OPF
       </a>
     </li>
@@ -216,21 +214,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../sensitivity.md" class="md-nav__link">
         Sensitivity
       </a>
-      
     </li>
   
 
@@ -255,6 +243,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#markdown-formatting-is-supported" class="md-nav__link">
+    Markdown formatting is supported
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -268,65 +271,26 @@
                   
 
 
-<h1 id="sensitivities">Sensitivities</h1>
-<h1 id="computation">Computation</h1>
-<table>
-<thead>
-<tr>
-<th>Syntax</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Header</td>
-<td>Title</td>
-</tr>
-<tr>
-<td>Paragraph</td>
-<td>Text</td>
-</tr>
-<tr>
-<td>Here&rsquo;s a simple footnote,[^1] and here&rsquo;s a longer one.[^bignote]</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>[^1]: This is the first footnote.</p>
-<p>[^bignote]: Here&rsquo;s one with multiple paragraphs and code.</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">Indent</span><span class="w"> </span><span class="nv">paragraphs</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="k">include</span><span class="w"> </span><span class="nv">them</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">footnote</span>.
+<h1 id="create_power_flow_equation_for_q">create_power_flow_equation_for_q</h1>
+<p><code>copy the declaration of the function in here (leave the ticks unchanged)</code></p>
+<p><em>describe what the function does in the following line</em></p>
+<h2 id="markdown-formatting-is-supported">Markdown formatting is supported</h2>
+<p>Equations are possible to, e.g <span class="arithmatex"><span class="MathJax_Preview">a^2 + b^2 = c^2</span><script type="math/tex">a^2 + b^2 = c^2</script></span>.
+So are lists:</p>
+<ul>
+<li>
+<p>item 1</p>
+</li>
+<li>
+<p>item 2</p>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span>x<span class="p">)</span>
 
-`{<span class="w"> </span><span class="nv">my</span><span class="w"> </span><span class="nv">code</span><span class="w"> </span>}`
-
-<span class="nv">Add</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">many</span><span class="w"> </span><span class="nv">paragraphs</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">like</span>.
-</code></pre></div></td></tr></table></div>
-
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Function</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Case file generator</td>
-<td align="left">Merge several case files &amp; connection information</td>
-</tr>
-<tr>
-<td align="left">Case file splitter</td>
-<td align="left">Adjust case files to account for core and copy nodes</td>
-</tr>
-<tr>
-<td align="left">Case file parser</td>
-<td align="left">Generate mathematical problem formulation</td>
-</tr>
-</tbody>
-</table>
+<span class="w">        </span><span class="n">x</span>^<span class="mi">2</span>
+<span class="k">end</span>
+</code></pre></div>
+See also: <a href="run_case_file_splitter.md">run_case_file_splitter</a></p>
 
 
 
@@ -364,10 +328,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
           <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>

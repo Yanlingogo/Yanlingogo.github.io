@@ -12,20 +12,20 @@
         <meta name="author" content="Yanlin Jiang">
       
       
-        <link rel="canonical" href="https://kit-iai.github.io/Polar/note/">
+        <link rel="canonical" href="https://kit-iai.github.io/Polar/mfiles/03_parser/validate_distributed_problem_formulation/">
       
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>note from introduction - OPF in Polarcoordinats</title>
+        <title>validate_distributed_problem_formulation - OPF in Polarcoordinats</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
       
       
 
@@ -41,9 +41,9 @@
       
     
     
-      <link rel="stylesheet" href="../extra.css">
+      <link rel="stylesheet" href="../../../extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#note-from-introduction" class="md-skip">
+        <a href="#validate_distributed_problem_formulation" class="md-skip">
           Skip to content
         </a>
       
@@ -81,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="OPF in Polarcoordinats" class="md-header__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
+    <a href="../../.." title="OPF in Polarcoordinats" class="md-header__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              note from introduction
+              validate_distributed_problem_formulation
             
           </span>
         </div>
@@ -167,7 +167,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="OPF in Polarcoordinats" class="md-nav__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
+    <a href="../../.." title="OPF in Polarcoordinats" class="md-nav__button md-logo" aria-label="OPF in Polarcoordinats" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -186,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem%20formulation/" class="md-nav__link">
+      <a href="../../../Problem formulation.md" class="md-nav__link">
         Problem Formulation
       </a>
     </li>
@@ -201,7 +201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../run%20OPF/" class="md-nav__link">
+      <a href="../../../run OPF.md" class="md-nav__link">
         Run OPF
       </a>
     </li>
@@ -216,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sensitivity/" class="md-nav__link">
+      <a href="../../../sensitivity.md" class="md-nav__link">
         Sensitivity
       </a>
     </li>
@@ -243,6 +243,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#markdown-formatting-is-supported" class="md-nav__link">
+    Markdown formatting is supported
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -256,32 +271,26 @@
                   
 
 
-<h1 id="note-from-introduction">note from introduction</h1>
-<p>Here, we summarize the PF problem with polar voltage coordinates, which is the classic representation.
-<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\widetilde{V}_i = V_i\angle\delta</span><script type="math/tex">\widetilde{V}_i = V_i\angle\delta</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\widetilde{V}_i = V_i\angle\delta</span><script type="math/tex">\widetilde{V}_i = V_i\angle\delta</script></span></script></span>
-in this example, the knote admittance is expressed in rectangular coordinates:
-<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\widetilde{Y}_{ik} = G_{ik}+\textrm{j}B_{ik}</span><script type="math/tex">\widetilde{Y}_{ik} = G_{ik}+\textrm{j}B_{ik}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\widetilde{Y}_{ik} = G_{ik}+\textrm{j}B_{ik}</span><script type="math/tex">\widetilde{Y}_{ik} = G_{ik}+\textrm{j}B_{ik}</script></span></script></span>
-If each bus voltage is represented in polar form with magnitude <span class="arithmatex"><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span> and phase angle <span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span>,then power quation decomposes into the set of active and reactive power equations in polar form:
-<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">P_i(V,\delta) = P^G_i-P^L_i\quad\forall i \in \mathbf{N}</span><script type="math/tex">P_i(V,\delta) = P^G_i-P^L_i\quad\forall i \in \mathbf{N}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">P_i(V,\delta) = P^G_i-P^L_i\quad\forall i \in \mathbf{N}</span><script type="math/tex">P_i(V,\delta) = P^G_i-P^L_i\quad\forall i \in \mathbf{N}</script></span></script></span>
-<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">Q_i(V,\delta) = Q^G_i-Q^L_i\quad\forall i \in \mathbf{N}</span><script type="math/tex">Q_i(V,\delta) = Q^G_i-Q^L_i\quad\forall i \in \mathbf{N}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">Q_i(V,\delta) = Q^G_i-Q^L_i\quad\forall i \in \mathbf{N}</span><script type="math/tex">Q_i(V,\delta) = Q^G_i-Q^L_i\quad\forall i \in \mathbf{N}</script></span></script></span>
-For the given <span class="arithmatex"><span class="MathJax_Preview">\widetilde{V}_i</span><script type="math/tex">\widetilde{V}_i</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\widetilde{Y}_{ik}</span><script type="math/tex">\widetilde{Y}_{ik}</script></span>, power flow equation can be written in the following form: (59,60 in introduction)
-The advantage of voltage polar coordinates is that constraints on the voltage magnitude can be enforced directly
-<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">V_i \ge V^{\textrm{min}}_i</span><script type="math/tex">V_i \ge V^{\textrm{min}}_i</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">V_i \ge V^{\textrm{min}}_i</span><script type="math/tex">V_i \ge V^{\textrm{min}}_i</script></span></script></span>
-<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">V_i \le V^{\textrm{max}}_i</span><script type="math/tex">V_i \le V^{\textrm{max}}_i</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">V_i \le V^{\textrm{max}}_i</span><script type="math/tex">V_i \le V^{\textrm{max}}_i</script></span></script></span>
-Thus, for a fixed voltage magnitude, use of voltage polar coordinates leads to a reduction of variables, For this reason, polar coordinates are preferred both for conventional PF and most OPF formulations.</p>
-<p>For the admittance matrix elements, rectangular coordinates (56)and(57) are typically favored because they facilitate the use of certain approximations in fast-decoupled solution methods for conventional PF</p>
-<h1 id="comment-in-code">comment in code</h1>
-<h2 id="create-index-for-buses-branches-generators">create index for buses, branches, generators</h2>
-<p>entries_pf(1,2,3,4) variables, which should be optimizied. </p>
-<h2 id="set-parameters-for-the-constraints">set parameters for the constraints</h2>
-<h2 id="set-the-objective-function">set the objective function</h2>
-<h2 id="equality-and-inequality-constraints">equality and inequality constraints</h2>
-<h2 id="reference-solution">reference solution</h2>
-<h2 id="solve-the-problem-by-casadi">solve the problem by CasADi</h2>
-<h2 id="derivatives">derivatives</h2>
-<h3 id="jacobian">Jacobian</h3>
-<h3 id="hessian">Hessian</h3>
-<h1 id="probelm-formulation">Probelm formulation</h1>
+<h1 id="validate_distributed_problem_formulation">validate_distributed_problem_formulation</h1>
+<p><code>copy the declaration of the function in here (leave the ticks unchanged)</code></p>
+<p><em>describe what the function does in the following line</em></p>
+<h2 id="markdown-formatting-is-supported">Markdown formatting is supported</h2>
+<p>Equations are possible to, e.g <span class="arithmatex"><span class="MathJax_Preview">a^2 + b^2 = c^2</span><script type="math/tex">a^2 + b^2 = c^2</script></span>.
+So are lists:</p>
+<ul>
+<li>
+<p>item 1</p>
+</li>
+<li>
+<p>item 2</p>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span>x<span class="p">)</span>
+
+<span class="w">        </span><span class="n">x</span>^<span class="mi">2</span>
+<span class="k">end</span>
+</code></pre></div>
+See also: <a href="run_case_file_splitter.md">run_case_file_splitter</a></p>
 
 
 
@@ -319,10 +328,10 @@ Thus, for a fixed voltage magnitude, use of voltage polar coordinates leads to a
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
           <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
